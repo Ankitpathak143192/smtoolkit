@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DarkTheme" parent="Theme.MaterialComponents">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/onyxBlack</item>
+        <item name="colorPrimaryDark">@color/smokyBlack</item>
+        <item name="colorAccent">@color/seaGreen</item>
+
+        <item name="android:textColor">@color/azureLightBlue</item>
+        <item name="background">@color/smokyBlack</item>
+        <item name="fontFamily">@font/nunito_sans</item>
+        <item name="cardBackgroundColor">@color/onyxBlack</item>
+        <item name="android:buttonCornerRadius" tools:targetApi="p">5dp</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomAppBar.Colored</item>
+
+
+    </style>
+
+</resources>

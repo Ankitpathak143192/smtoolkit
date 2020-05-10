@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DarkTheme" parent="Theme.MaterialComponents.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/onyxBlack</item>
+        <item name="colorPrimaryDark">@color/smokyBlack</item>
+        <item name="colorAccent">@color/seaGreen</item>
+
+        <item name="android:textColor">@color/azureLightBlue</item>
+        <item name="background">@color/smokyBlack</item>
+        <item name="fontFamily">@font/nunito_sans</item>
+        <item name="cardBackgroundColor">@color/onyxBlack</item>
+        <item name="textAppearanceHeadline6">@color/orangeRed</item>
+        <item name="android:buttonCornerRadius">5dp</item>
+
+    </style>
+
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="smokyBlack">#101313</color>
+    <color name="eerieBlack">#202425</color>
+    <color name="onyxBlack">#353B3C</color>
+    <color name="lavender">#9D8DF1</color>
+    <color name="seaGreen">#1CFEBA</color>
+    <color name="DarkGreen">#084533</color>
+    <color name="azureLightBlue">#E6FAFE</color>
+    <color name="orangeRed">#FF5A5F</color>
+    <color name="customBlack">#1a1717</color>
+
+
+</resources>
