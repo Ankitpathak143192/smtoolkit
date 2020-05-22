@@ -205,6 +205,21 @@ public class DashboardFragment extends Fragment {
         LastUpdate=myActivity.getLastUpdate();
         monthlyEngagement=myActivity.getMonthlyEngagement();
         monthlyMinutesWatched=myActivity.getMonthlyMinutesWatched();
+
+        if(TotalSub!=null)
+        {
+
+        }
+        else
+        {
+            TotalSub  = "10";
+            TotalViews ="10";
+            TotalVideos="10";
+            LastUpdate="10";
+            monthlyEngagement="10";
+            monthlyMinutesWatched="10";
+        }
+
     }
 
 
@@ -222,16 +237,16 @@ public class DashboardFragment extends Fragment {
     {
         String upcoming_goal="Upcoming Goal ";
 
-       subGoalTV.setText( upcoming_goal +goalCreate(TotalSub,"subHG","subFG"));
-       videoGoalTV.setText(upcoming_goal+goalCreate(TotalVideos,"videoHG","videoFG"));
-       viewGoalTV.setText(upcoming_goal+goalCreate(TotalViews,"viewHG","viewFG"));
-       monthlyMinutesWatchedGoalTV.setText(upcoming_goal+goalCreate(monthlyMinutesWatched,"minuteswatchedHG","minuteswatchedFG"));
-       engagementGoalTV.setText(upcoming_goal+goalCreate(monthlyEngagement,"engagementHG","engagementFG"));
+       subGoalTV.setText( upcoming_goal +goalCreate(TotalSub,"subHG","subFG", "subCG"));
+       videoGoalTV.setText(upcoming_goal+goalCreate(TotalVideos,"videoHG","videoFG","videoCG"));
+       viewGoalTV.setText(upcoming_goal+goalCreate(TotalViews,"viewHG","viewFG","viewCG"));
+       monthlyMinutesWatchedGoalTV.setText(upcoming_goal+goalCreate(monthlyMinutesWatched,"minuteswatchedHG","minuteswatchedFG","minuteswatchedCG"));
+       engagementGoalTV.setText(upcoming_goal+goalCreate(monthlyEngagement,"engagementHG","engagementFG","engagementCG"));
 
 
     }
 
-    int goalCreate(String value, String tagHG, String tagFG)
+    int goalCreate(String value, String tagHG, String tagFG, String tagCG)
     { int k=0,goal=0,fullgoal=0,halfgoal=0,currentValue=Integer.parseInt(value);
       int[] a =new int[value.length()];
         for (int i=0;i<value.length();i++)
@@ -251,19 +266,21 @@ public class DashboardFragment extends Fragment {
            else
                goal=halfgoal;
 
-           saveGoal(tagHG,tagFG,halfgoal,fullgoal);
+           saveGoal(tagHG,tagFG,tagCG,halfgoal,fullgoal,goal);
 
         Log.d(LOG_TAG,"Goal is "+ goal);
+
         return goal;
     }
 
-    private void saveGoal(String tagHG, String tagFG, int halfgoal, int fullgoal)
+    private void saveGoal(String tagHG, String tagFG, String tagCG,int halfgoal, int fullgoal, int currentgoal)
     {
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(getActivity());
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(tagHG, String.valueOf(halfgoal));
         editor.putString(tagFG, String.valueOf(fullgoal));
+        editor.putString(tagCG, String.valueOf(currentgoal));
         editor.apply();
 
     }

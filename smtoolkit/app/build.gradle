@@ -1,6 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\CurrentWork\\Apps\\Keys\\releaseKey.jks')
+            storePassword '1165192_Sb'
+            keyAlias = 'releaseKey'
+            keyPassword '1165192_Sb'
+        }
+
+    }
+    configurations {
+        all {
+            exclude module: 'httpclient'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
@@ -44,7 +58,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.2'
     implementation 'androidx.navigation:navigation-ui:2.2.2'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
@@ -56,21 +70,21 @@ dependencies {
     implementation 'com.reginald:editspinner:1.1.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    implementation 'com.google.apis:google-api-services-youtubeAnalytics:v2-rev20200215-1.30.9'
+    implementation 'com.google.apis:google-api-services-youtubeAnalytics:v2-rev99-1.22.0'
     implementation 'com.google.api-client:google-api-client:1.30.9'
-    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.30.6'
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
-    implementation 'com.google.apis:google-api-services-youtubereporting:v1-rev748-1.25.0'
+    implementation 'com.google.apis:google-api-services-youtubereporting:v1-rev9-1.22.0'
 
 
-    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
     implementation 'com.android.volley:volley:1.1.1'
-    implementation('com.google.apis:google-api-services-youtube:v3-rev183-1.22.0')
+    implementation('com.google.apis:google-api-services-youtube:v3-rev99-1.17.0-rc')
             {
                 exclude group: 'org.apache.httpcomponents'
             }
 
-    implementation('com.google.api-client:google-api-client-android:1.30.5') {
+    implementation('com.google.api-client:google-api-client-android:1.30.9') {
         exclude group: 'org.apache.httpcomponents'
     }
     implementation 'net.openid:appauth:0.2.0'

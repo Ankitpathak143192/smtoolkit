@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity {
         if (mAuthState != null && mAuthState.isAuthorized()) {
             login.setVisibility(View.INVISIBLE);
             logout.setVisibility(View.VISIBLE);
-           // new MakeApiCallListener(this, mAuthState, new AuthorizationService(this));
-          //  new MakeApiCallListener2(this, mAuthState,new AuthorizationService(this));
-           // new MakeApiCallListener3(this, mAuthState,new AuthorizationService(this));
+
         }
         else
         {
@@ -245,7 +243,8 @@ public class MainActivity extends AppCompatActivity {
                     Uri.parse("https://www.googleapis.com/oauth2/v4/token") /* token endpoint */
             );
 
-            String clientId = "197783100258-0f3788lu5u9crbgthketqtqtvkbfurui.apps.googleusercontent.com";
+           // String clientId = "197783100258-0f3788lu5u9crbgthketqtqtvkbfurui.apps.googleusercontent.com";
+            String clientId="197783100258-blsqj3e7tsq40uj5irpjouskfg647r7p.apps.googleusercontent.com";
             Uri redirectUri = Uri.parse("com.pathakankit99.smtoolkit:/oauth2callback");
             AuthorizationRequest.Builder builder = new AuthorizationRequest.Builder(
                     serviceConfiguration,

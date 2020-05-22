@@ -59,13 +59,12 @@ public class BackgroundApiCall extends Worker {
 
                     // Thread will sleep for 5 seconds
                     sleep(10 * 1000);
-                    // After 5 seconds redirect to another intent
+                    // After 5 seconds checkGoal
 
                     int TotalViews = Integer.parseInt(apicall1.viewCount);
                     int TotalSubs = Integer.parseInt(apicall1.subscriberCount);
-
-                     checkGoal("subHG","subFG",TotalSubs);
-                    checkGoal("viewHG","viewFG", TotalViews);
+                    checkSubGoal("subHG","subFG","subCG",TotalSubs);
+                    checkViewGoal("viewHG","viewFG", "viewCG",TotalViews);
 
                     //Remove activity
 
@@ -88,26 +87,76 @@ public class BackgroundApiCall extends Worker {
                 .getDefaultSharedPreferences(getApplicationContext());
         String halfgoal = sharedPreferences.getString(tagHG,null);
         String fullgoal=sharedPreferences.getString(tagFG,null);
+        String title1 = "You Hit a Goal. Your Total sub now is ",
+                title2="You Hit a Goal. Your Total Views now is ",
+                content1 = "",
+                content2 = "";
         if(tagHG.contains("subHG")) {
-            String Title = "You Hit a Goal. Your Total sub now is ";
-            String content = String.valueOf(currentValue);
+            title1 = "You Hit a Goal. Your Total sub now is ";
+            content1 = String.valueOf(currentValue);
             Log.d("SMToolkit","TotalSub is "+ currentValue);
-            Log.d("SMToolkit","Showing Notification Now");
-            showNotification(124,Title, content);
+
+
         }
         if(tagHG.contains("viewHG")) {
-            String Title = "You Hit a Goal. Your Total Views now is ";
-            String content = String.valueOf(currentValue);
+            title2 = "You Hit a Goal. Your Total Views now is ";
+            content2 = String.valueOf(currentValue);
             Log.d("SMToolkit","TotalViews is "+ currentValue);
-            Log.d("SMToolkit","Showing Notification Now");
-            showNotification(123,Title, content);
+
+
         }
 
         if (currentValue>Integer.parseInt(halfgoal)||currentValue>Integer.parseInt(fullgoal))
         {
+            Log.d("SMToolkit","halfgoal is "+ halfgoal);
+            Log.d("SMToolkit","fullgoal is "+ fullgoal);
+            showNotification(124,title1, content1);
+            showNotification(123,title2, content2);
+
+        }
+    }
+    private void checkViewGoal(String tagHG, String tagFG,String tagCG, int currentValue)
+    {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(getApplicationContext());
+        String halfgoal = sharedPreferences.getString(tagHG,null);
+        String fullgoal=sharedPreferences.getString(tagFG,null);
+        String currentgoal=sharedPreferences.getString(tagCG,null);
+        String  title2="You Hit a Goal. Your Total Views now is ",   content2 = "";
+
+            content2 = String.valueOf(currentValue);
+            Log.d("SMToolkit","TotalViews is "+ currentValue);
+        Log.d("SMToolkit","Currentgoal is "+ currentgoal);
+        if (currentValue>Integer.parseInt(currentgoal))
+        {
+            Log.d("SMToolkit","halfgoal is "+ halfgoal);
+            Log.d("SMToolkit","fullgoal is "+ fullgoal);
+            Log.d("SMToolkit","Currentgoal view is "+ currentgoal);
+
+            showNotification(123,title2, content2);
+
+        }
+    }
+    private void checkSubGoal(String tagHG, String tagFG, String tagCG,int currentValue)
+    {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(getApplicationContext());
+        String halfgoal = sharedPreferences.getString(tagHG,null);
+        String fullgoal=sharedPreferences.getString(tagFG,null);
+        String currentgoal=sharedPreferences.getString(tagCG,null);
+        String title1 = "You Hit a Goal. Your Total sub now is ",
+                        content1 = "";
+        content1 = String.valueOf(currentValue);
+
+            Log.d("SMToolkit","TotalSub is "+ currentValue);
+        Log.d("SMToolkit","Currentgoal Sub is "+ currentgoal);
 
 
-
+        if (currentValue>Integer.parseInt(currentgoal))
+        {
+            Log.d("SMToolkit","halfgoal is "+ halfgoal);
+            Log.d("SMToolkit","fullgoal is "+ fullgoal);
+            showNotification(124,title1, content1);
 
         }
     }
@@ -121,6 +170,9 @@ public class BackgroundApiCall extends Worker {
                     NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
             manager.createNotificationChannel(channel);
         }
+        Log.d("SMToolkit","Title is "+ task);
+        Log.d("SMToolkit","Content is "+ desc);
+        Log.d("SMToolkit","Showing Notification Now");
         NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), channelId)
                 .setContentTitle(task)
                 .setContentText(desc)

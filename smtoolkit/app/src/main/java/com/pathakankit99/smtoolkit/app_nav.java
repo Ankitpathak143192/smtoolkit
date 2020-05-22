@@ -46,7 +46,7 @@ public class app_nav extends AppCompatActivity implements DataProviderFromActivi
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_dashboard, R.id.navigation_videoSchedule, R.id.navigation_notifications)
+                R.id.navigation_dashboard, R.id.navigation_videoSchedule)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -94,9 +94,14 @@ public class app_nav extends AppCompatActivity implements DataProviderFromActivi
         monthlyLikes=sharedPreferences.getString("MonthlyLikes",null);
         monthlyShares=sharedPreferences.getString("MonthlyShares",null);
 
-
-       int monthlyEngagementTemp=Integer.parseInt(monthlyComments)+Integer.parseInt(monthlyLikes)+Integer.parseInt(monthlyDislikes)+Integer.parseInt(monthlyShares);
-       monthlyEngagement= String.valueOf(monthlyEngagementTemp);
+        if (monthlyLikes!=null)
+        {
+            int monthlyEngagementTemp;
+            monthlyEngagementTemp = Integer.parseInt(monthlyComments)+Integer.parseInt(monthlyLikes)+Integer.parseInt(monthlyDislikes)+Integer.parseInt(monthlyShares);
+            monthlyEngagement= String.valueOf(monthlyEngagementTemp);
+        }
+        else
+            monthlyEngagement="refresh";
 
 
     }

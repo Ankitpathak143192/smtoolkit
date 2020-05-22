@@ -50,6 +50,7 @@ public class schedule extends Fragment implements YTScheduleRecyclerViewAdapter.
     private int totalVideosScheduled2 = 0;
     private RecyclerView recyclerView;
     private Switch switch1;
+    public  LottieAnimationView animationView1;
     boolean state;
     String state2;
 
@@ -96,6 +97,8 @@ public class schedule extends Fragment implements YTScheduleRecyclerViewAdapter.
         });
         view2 = root.findViewById(R.id.linearlayoutRoot);
         recyclerView = root.findViewById(R.id.videoListRecyclerView);
+        animationView1=root.findViewById(R.id.animation_view_2);
+        animationView1.setVisibility(View.INVISIBLE);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         checkState();
 
@@ -107,7 +110,7 @@ public class schedule extends Fragment implements YTScheduleRecyclerViewAdapter.
     public void onResume() {
         Log.d(TAG,"Inside onResume function");
 
-        // animationView2.setVisibility(View.INVISIBLE);
+        animationView1.setVisibility(View.INVISIBLE);
         //update events home
         videos.clear();
         checkState();
@@ -123,8 +126,9 @@ public class schedule extends Fragment implements YTScheduleRecyclerViewAdapter.
 
         Log.d(LOG_TAG, "Total videos: " + totalVideosScheduled);
         if (totalVideosScheduled == 0) {
-            // animationView2.setVisibility(View.VISIBLE);
-            //animationView2.playAnimation();
+            animationView1.setVisibility(View.VISIBLE);
+            animationView1.playAnimation();
+
             Snackbar snackbar = Snackbar
                     .make(view2, "No Video Schedule found.", Snackbar.LENGTH_LONG);
             snackbar.show();

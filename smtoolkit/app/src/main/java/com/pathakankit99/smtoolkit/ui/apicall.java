@@ -103,35 +103,6 @@ public class apicall extends  MainActivity {
                                     String updateDate= sdf.format(new Date());
                                     String updateTime = sdf2.format(new Date());
                                     Log.d(LOG_TAG,"updateDate= "+updateDate+"   "+updateTime);
-                                   // Log.d(LOG_TAG,"Context is "+mMainActivity.getApplicationContext());
-
-
-                                 // SharedPreferences mySharedPreferences = mMainActivity.getParent().getSharedPreferences("preferences", Activity.MODE_PRIVATE);
-                                   // DataProviderFromActivity myActivity= (DataProviderFromActivity) mMainActivity.getApplicationContext();
-
-                                  /*  File file = new File(mMainActivity.getApplicationContext().getFilesDir(), "Notice");
-                                    if (!file.exists()) {
-                                        file.mkdir();
-                                    }
-                                    try {
-                                        File gpxfile = new File(file, "sample");
-                                        FileWriter writer = new FileWriter(gpxfile);
-                                        writer.append(viewCount);
-                                        writer.flush();
-                                        writer.close();
-                                       // Toast.makeText(mMainActivity, "Saved your text", Toast.LENGTH_LONG).show();
-                                    } catch (Exception e) { }
-
-
-                                  /*  SharedPreferences sharedPreferences = PreferenceManager
-                                            .getDefaultSharedPreferences(mMainActivity);
-                                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                                    editor.putString("TotalSubscribers", subscriberCount);
-                                    editor.putString("TotalViews",viewCount);
-                                    editor.putString("TotalVideos",videoCount);
-                                    editor.putString("UpdateDate",updateDate);
-                                    editor.putString("UpdateTime",updateTime);
-                                    editor.apply(); */
 
 
 

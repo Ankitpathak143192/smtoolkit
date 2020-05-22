@@ -14,6 +14,17 @@
         android:layout_margin="5dp"
         android:fontFamily="@font/nunito_sans"
         android:text="Show only Non Published Videos" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:paddingBottom="200dp"
+        android:scaleType="fitCenter"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/user_testing"
+        app:lottie_scale="2" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/videoListRecyclerView"
